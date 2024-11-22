@@ -36,18 +36,6 @@ const menuItemVariants = {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  // Handle click outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   return (
     <motion.header 
@@ -57,12 +45,33 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <Link 
-            href="/" 
-            className="text-2xl font-bold text-green-800/90 hover:text-green-800 transition-colors"
-          >
-            Nature Travels
-          </Link>
+          <div className="flex items-center space-x-4">
+            <Link 
+              href="/"
+              className="p-2 rounded-full hover:bg-green-50/50 transition-colors"
+              aria-label="Home"
+            >
+              <svg 
+                className="w-6 h-6 text-green-800/90" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </Link>
+            <Link 
+              href="/" 
+              className="text-2xl font-bold text-green-800/90 hover:text-green-800 transition-colors"
+            >
+              Nature Travels
+            </Link>
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -105,7 +114,6 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 />
                 <motion.div
-                  ref={menuRef}
                   variants={menuVariants}
                   initial="closed"
                   animate="open"

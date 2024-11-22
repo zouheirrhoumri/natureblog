@@ -145,11 +145,11 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="px-8 py-3 bg-green-600 hover:bg-green-700 rounded-full text-white font-semibold transition-colors">
+            {/* <button className="px-8 py-3 bg-green-600 hover:bg-green-700 rounded-full text-white font-semibold transition-colors">
               Start Your Journey
-            </button>
+            </button> */}
             <button className="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full text-white font-semibold backdrop-blur-sm transition-colors">
-              Watch Video
+              About Me
             </button>
           </motion.div>
         </div>

@@ -115,14 +115,14 @@ export default function Navbar() {
                   {/* Close Button */}
                  
                   <div className="flex flex-col p-8 pt-16 space-y-8">
-                    {['About', 'Blog', 'Gallery'].map((item, i) => (
+                    {['Home', 'About', 'Blog', 'Gallery'].map((item, i) => (
                       <motion.div
                         key={item}
                         custom={i}
                         variants={menuItemVariants}
                       >
                         <MobileNavLink 
-                          href={`/${item.toLowerCase()}`}
+                          href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                           onClick={() => setIsOpen(false)}
                         >
                           {item}

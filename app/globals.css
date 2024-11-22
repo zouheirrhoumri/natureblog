@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2d5a27;
+  --secondary: #a8c69f;
+  --accent: #1a4645;
+  --background: #fafaf9;
+}
+
+body {
+  color: #1a1a1a;
+  background: var(--background);
+}
+
+.prose img {
+  @apply rounded-lg shadow-md;
+}
+
+.fade-in {
+  @apply transition-opacity duration-700 ease-in-out;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.nature-gradient {
+  @apply bg-gradient-to-r from-green-700/10 via-emerald-600/10 to-teal-500/10;
+}
